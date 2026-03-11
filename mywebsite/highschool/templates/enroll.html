@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enroll - Aning Academy</title>
+<!-- Tailwind CSS with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Lexend -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        // Overriding primary to Forest Green as requested
+                        "primary": "#228b22", 
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        /* Custom select styling to match the theme */
+        .custom-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] flex flex-col min-h-screen">
+<!-- Header / Nav -->
+<header class="bg-primary text-white px-6 py-4 shadow-md">
+<div class="max-w-6xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">stars</span>
+<h1 class="text-xl font-bold tracking-tight">Aning Academy</h1>
+</div>
+<nav class="hidden md:flex gap-6 text-sm font-medium">
+<a class="hover:text-white/80" href="#">Home</a>
+<a class="hover:text-white/80" href="#">Courses</a>
+<a class="hover:text-white/80 underline underline-offset-4" href="#">Enroll</a>
+</nav>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex items-center justify-center p-6 md:p-12">
+<div class="w-full max-w-xl">
+<!-- Enrollment Card -->
+<div class="bg-white dark:bg-[#1c2632] rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+<!-- Card Header Image -->
+<div class="h-48 bg-cover bg-center" data-alt="University campus building with green grass and trees" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFbtYbzCPYTMWnmtkmTKiz2kXeIRBwo984G9yYsIr1wLIyRK9E8KpGCD0XAD4SfcbYNJ8vcZ34GNLIxMy-fYd99GbsL8zWE-OhWjUsN3VOKLl8u3TQSZhcLksgC0tmn2voui-WXDhbFYwAUr4rPX6wz26cB9K8IyN4LTkRU2YZFlA1E5F1wuJQxsmShTu53iB42C-lzQIlqysHXZ3j35EbrgPUkqrkrV1u66KqtV1F_Hwu4GtfdLaUmH-QEwdWJ9gVqhVpDB9z1-I');">
+<div class="w-full h-full bg-black/30 flex items-end p-8">
+<h2 class="text-white text-4xl font-extrabold tracking-tight">Enroll</h2>
+</div>
+</div>
+<!-- Form Section -->
+<div class="p-8">
+<p class="text-gray-500 dark:text-gray-400 mb-8 font-normal leading-relaxed">
+                        Start your journey with Aning Academy. Please provide your basic information to begin the registration process.
+                    </p>
+<form action="#" class="space-y-6" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- First Name -->
+ {%csrf_token %}
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-[#111418] dark:text-gray-200" for="firstname">First Name</label>
+<input class="w-full rounded-lg border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-[#101922] px-4 py-3 text-base outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:text-white" id="first_name" name="first_name" placeholder="John" required="" type="text"/>
+</div>
+<!-- Last Name -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-[#111418] dark:text-gray-200" for="lastname">Last Name</label>
+<input class="w-full rounded-lg border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-[#101922] px-4 py-3 text-base outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:text-white" id="last_name" name="last_name" placeholder="Doe" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Age -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-[#111418] dark:text-gray-200" for="age">Age</label>
+<input class="w-full rounded-lg border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-[#101922] px-4 py-3 text-base outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:text-white" id="age" max="100" min="5" name="age" placeholder="18" required="" type="number"/>
+</div>
+<!-- Gender -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-[#111418] dark:text-gray-200" for="gender">Gender</label>
+<select class="custom-select w-full rounded-lg border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-[#101922] px-4 py-3 text-base outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:text-white" id="gender" name="gender" required="">
+<option disabled="" selected="" value="">Select gender</option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98]" type="submit">
+                                Submit Enrollment
+                            </button>
+</div>
+{% if submitted%}
+            <h2>Submitted</h2>
+            <ul>
+                <li>First name: {{ firstname }}</li>
+                <li>Last name: {{ lastname }}</li>
+                <li>Age: {{ age }}</li>
+                <li>Gender: {{ gender }}</li>
+            </ul>
+            {% endif %}
+
+</form>
+</div>
+</div>
+<!-- Optional: State - Submitted (Hidden by default, shown via logic usually) -->
+<div class="hidden mt-12 bg-white dark:bg-[#1c2632] rounded-xl shadow-xl border border-primary/20 p-12 text-center">
+<div class="size-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-5xl">check_circle</span>
+</div>
+<h3 class="text-2xl font-bold text-[#111418] dark:text-white mb-2">Enrollment Submitted!</h3>
+<p class="text-gray-500 dark:text-gray-400 mb-8 max-w-sm mx-auto">
+                    Thank you for choosing Aning Academy. We have received your application and will contact you via email within 2-3 business days.
+                </p>
+<a class="inline-flex items-center gap-2 text-primary font-semibold hover:underline" href="#">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                    Return to Homepage
+                </a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-black text-white py-10 px-6 mt-auto">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">stars</span>
+<span class="font-bold">Aning Academy</span>
+</div>
+<p class="text-gray-400 text-sm">
+                © 2024 Aning Academy. All rights reserved.
+            </p>
+<div class="flex gap-4 text-gray-400">
+<a class="hover:text-white" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="hover:text-white" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="hover:text-white" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+</footer>
+</body></html>
